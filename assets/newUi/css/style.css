@@ -1,0 +1,260 @@
+ body{
+ 	color: #2e3c4b;
+ }
+
+.clrblk{
+	color: #2e3c4b;
+}
+ .dsa_P{
+    display: flex;
+    justify-content: space-between;
+ }
+ a:hover{
+ 	text-decoration: none;
+ }
+ .logInbtn{
+ 	font-weight: 600;
+    color: #2e3c4b;
+    font-size: 18px;
+ }
+ .backTes{
+ 	background:#f1f1e163;
+ }
+  .logInbtn{
+ 	font-weight: 600;
+color:  #2e3c4b;
+    font-size: 18px;
+ }
+ .nav-item .active{
+ 	color:  #34ac4a !important;
+ }
+ .nav-item a{
+ 	font-weight: 700;
+ 	color:#2e3c4b ;
+ }
+ .nav-item a:hover{
+ 	font-weight: 700;
+ 		color:  #34ac4a !important;
+ }
+ .W_60{
+ 	width: 60%;
+ }
+.hedTo{
+	    position: absolute;
+    top: 0px;
+    width: 100%;
+    background: transparent;;
+}
+.padT90{
+	    padding-top: 120px;
+}
+.w_20{
+	    width: 20%;
+}
+ .top_banr{
+    background: url(../images/Slider-Image.png);
+  background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: right;
+    background-position-y: top;
+
+ }
+ .colgrn{
+ 	color:  #34ac4a;
+ }
+
+ .bakcolgrn{
+ 	background:  #34ac4a;
+ }
+ .countSec h2{
+ 		color:  #34ac4a;
+ }
+  .countSec span{
+ 		color: #7d7d7d;
+    font-weight: 500;
+ }
+ .colgry{
+ 	color:#7d7d7d;
+
+ }
+ .fntS14{
+ 	    font-size: 14px;
+ }
+ .fnt500{
+ 	font-weight: 500;
+ }
+ .fnt700{
+ 	font-weight: 700;
+ }
+ .boxSHdw{
+ 	border-radius: 5px;
+ 	box-shadow: 0px 0px 9px -1px #00000026;
+ }
+ .premum{
+ 	background: #f86a6a;
+    color: white;
+    font-size: 8px;
+    border-radius: 4px;
+    padding: 2px 8px;
+    position: absolute;
+    left: 13px;
+    top: 15px;
+ }
+ .frelncr{
+ 	    background: #6ad1f852;
+    color: #2f83ff;
+    font-size: 11px;
+    padding: 2px 8px;
+    position: absolute;
+    top: 15px;
+    right: 21px;
+ }
+ .dsaPb{
+ 	    background: #e1e1e1;
+    padding: 4px 10px;
+    border-radius: 11px;
+    font-size: 12px;
+
+ }
+ .sadUu{
+ 	    font-size: 13px;
+    font-weight: 700;
+ }
+ .grenbtn{
+ 	background:  #34ac4a;
+ 	color: white;
+ 	font-weight: 500;
+ }
+ .grenbtn:hover{
+ 	background:  white;
+	border: 2px solid #34ac4a;
+ 	font-weight: 500;
+ 	color: #34ac4a;
+ }
+
+ .grnLightbtn{
+ 	border: 2px solid #34ac4a;
+ font-weight: 500;
+ 	color: #34ac4a;
+ }
+  .grnLightbtn:hover{
+ 
+ background:  #34ac4a;
+ 	color: white;
+ 	font-weight: 500;
+ }
+ .footAdd{
+ 	    color: #7d7d7d;
+    font-size: 14px;
+    font-weight: 500;
+ }
+ .menUFo a{
+ 	 color: #7d7d7d;
+    font-size: 14px;
+    font-weight: 500;
+ }
+  .menUFo a:hover{
+ 	color:  #34ac4a;
+ 	text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+ }
+ .pad23{
+ 	    padding: 5px 36px;
+ }
+ .brd_non{
+ 	border: none !important;
+ 	outline: none !important;
+ }
+ .padY70{
+ 	    padding: 70px 0px !important;
+ }
+ .vidIcon{
+ 	background: white;
+    color: #34ac4a;
+    font-size: 21px;
+    padding: 20px 24px;
+    border-radius: 50%;
+    text-align: center;
+    margin-top: 15px;
+ }
+ .bacKdl{
+ 	background: #2222225e;
+ }
+ .OpcaNm{
+ 	    font-size: 81px;
+    position: absolute;
+    left: 97px;
+    top: -50px;
+    color: #808080bd;
+    opacity: .2;
+ }
+
+.card {
+  margin: 0 auto;
+
+}
+
+.card .carousel-item {
+  height: 420px;
+}
+.card .carousel-caption {
+  padding: 0;
+  right: 0;
+  left: 0;
+  
+}
+.htWt15{
+	width: 15px;
+    height: 15px;
+}
+.card .carousel-caption h3 {
+ color:#7d7d7d;
+}
+.card .carousel-caption p {
+  line-height: 30px;
+}
+.card .carousel-caption .col-sm-3 {
+  display: flex;
+  align-items: center;
+}
+.card .carousel-caption .col-sm-9 {
+  text-align: left;
+}
+.navi a {
+    text-decoration:none;
+}
+a > .ico {
+    background-color: grey;
+    padding: 10px;
+    
+}
+a:hover > .ico {
+    background-color: #666;
+}
+.carousel-inner{
+padding-top:22px ;
+}
+.text_up{
+	text-transform: uppercase;
+}
+.bg_white{
+	background: transparent;
+}
+ @media only screen and (max-width: 600px){
+ 	.W_60{
+	 	width: 100%;
+	 }
+	 .bg_white{
+		background: transparent;
+	}
+	.card .carousel-item {
+	    height: 840px;
+	}
+ }
+  @media only screen and (max-width: 990px){
+ 	
+	 .bg_white{
+		background: white;
+	}
+ }
