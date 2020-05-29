@@ -1,12 +1,4 @@
-<?php
-  $compData=unserialize($this->session->userdata('logged_company'));
-  $company_name=$compData[0]->company_name;
-  $company_id=$compData[0]->company_id;
- 
-  $logo_=$this->db->select('company_logo')->where('company_id',$company_id)->get('company_')->row();
-  $logo_=$logo_->company_logo;
-  // print_r($logo_);
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,7 +39,7 @@
         <div class="sidebar-brand-icon rotate-n-15">
           
         </div>
-        <div class="sidebar-brand-text mx-3"><img src="<?=base_url('assets/CompanyImages/logo/').$logo_?>" width="100%" onerror='this.src="<?=base_url('assets/CompanyImages/logo/default.png')?>"'></sup></div>
+        <div class="sidebar-brand-text mx-3"><img src="" width="100%" onerror='this.src="<?=base_url('assets/CompanyImages/logo/default.png')?>"'></sup></div>
       </a>
 
       <!-- Divider -->
@@ -77,68 +69,45 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDetails" aria-expanded="true" aria-controls="collapseUtilities">
           <i class="fas fa-fw fa-wrench"></i>
-          <span>Jobs</span>
+          <span>Restaurant</span>
         </a>
         <div id="collapseDetails" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Jobs Details:</h6>
-            <a class="collapse-item" href="<?=base_url('Company/postJob')?>">Post Job</a>
-            <a class="collapse-item" href="<?=base_url('Company/postedJobs')?>">Posted Jobs</a>
+            <h6 class="collapse-header">Restaurant:</h6>
+            <a class="collapse-item" href="<?=base_url('Admin/addRestaurant')?>">Add Restaurant</a>
+            <a class="collapse-item" href="<?=base_url('Admin/allRestaurant')?>">All Restaurant</a>
+            <a class="collapse-item" href="<?=base_url('Admin/pendingRestaurant')?>">Pending Restaurant</a>
+            <a class="collapse-item" href="<?=base_url('Admin/rejectedRestaurant')?>">Rejected Restaurant</a>
             <!-- <a class="collapse-item" href="utilities-animation.html">Animations</a>
             <a class="collapse-item" href="utilities-other.html">Other</a> -->
+          </div>
+        </div>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCategories" aria-expanded="true" aria-controls="collapseUtilities">
+          <i class="fas fa-fw fa-wrench"></i>
+          <span>Categories</span>
+        </a>
+        <div id="collapseCategories" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Categories:</h6>
+            <a class="collapse-item" href="<?=base_url('Admin/Category')?>">Add/View Categories</a>
+            <!-- <a class="collapse-item" href="<?=base_url('Admin/Category')?>">View Categories</a> -->
+           
           </div>
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseApplication" aria-expanded="true" aria-controls="collapseUtilities">
-          <i class="fa fa-envelope-open-o" aria-hidden="true"></i>
-          <span>Job Application</span>
-        </a>
-        <div id="collapseApplication" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Jobs Application:</h6>
-            <a class="collapse-item" href="<?=base_url('Company/jobApplications')?>">View Application</a>
-            <!-- <a class="collapse-item" href="utilities-border.html">Posted Jobs</a> -->
-            <!-- <a class="collapse-item" href="utilities-animation.html">Animations</a>
-            <a class="collapse-item" href="utilities-other.html">Other</a> -->
-          </div>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseInterview" aria-expanded="true" aria-controls="collapseUtilities">
-          <i class="fa fa-envelope-open-o" aria-hidden="true"></i>
-          <span>Interviews</span>
-        </a>
-        <div id="collapseInterview" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Interview:</h6>
-            <a class="collapse-item" href="<?=base_url('Company/scheduledInterivews')?>">Schedule Interview</a>
-            <!-- <a class="collapse-item" href="utilities-border.html">Posted Jobs</a> -->
-            <!-- <a class="collapse-item" href="utilities-animation.html">Animations</a>
-            <a class="collapse-item" href="utilities-other.html">Other</a> -->
-          </div>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseResume" aria-expanded="true" aria-controls="collapseUtilities">
-          <i class="fa fa-envelope-open-o" aria-hidden="true"></i>
-          <span>Filter Resume</span>
-        </a>
-        <div id="collapseResume" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Resume Filter:</h6>
-            <a class="collapse-item" href="<?=base_url('Company/resumeFilter')?>">Filter</a>
-            <!-- <a class="collapse-item" href="utilities-border.html">Posted Jobs</a> -->
-            <!-- <a class="collapse-item" href="utilities-animation.html">Animations</a>
-            <a class="collapse-item" href="utilities-other.html">Other</a> -->
-          </div>
-        </div>
-      </li>
-      <!-- <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="<?=base_url('Company/jobSeekeers')?>">
           <i class="fas fa-fw fa-chart-area"></i>
-          <span>Messages</span></a>
-      </li> -->
+          <span>Menu</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<?=base_url('Company/jobSeekeers')?>">
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>Setting</span></a>
+      </li>
       <li class="nav-item">
         <a class="nav-link" href="<?=base_url('Company/jobSeekeers')?>">
           <i class="fas fa-fw fa-chart-area"></i>
@@ -147,50 +116,6 @@
       <!-- Divider -->
       <hr class="sidebar-divider">
 
-      <!-- Heading -->
-      <!-- <div class="sidebar-heading">
-        Addons
-      </div> -->
-
-      <!-- Nav Item - Pages Collapse Menu -->
-      <!-- <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-          <i class="fas fa-fw fa-folder"></i>
-          <span>Pages</span>
-        </a>
-        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Login Screens:</h6>
-            <a class="collapse-item" href="login.html">Login</a>
-            <a class="collapse-item" href="register.html">Register</a>
-            <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-            <div class="collapse-divider"></div>
-            <h6 class="collapse-header">Other Pages:</h6>
-            <a class="collapse-item" href="404.html">404 Page</a>
-            <a class="collapse-item" href="blank.html">Blank Page</a>
-          </div>
-        </div>
-      </li> -->
-
-      <!-- Nav Item - Charts -->
-     <!--  <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-          <i class="fas fa-fw fa-chart-area"></i>
-          <span>Charts</span></a>
-      </li> -->
-      <!-- Nav Item - Charts -->
-      <!-- <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-          <i class="fas fa-fw fa-chart-area"></i>
-          <span>Company</span></a>
-      </li> -->
-
-      <!-- Nav Item - Tables -->
-      <!-- <li class="nav-item">
-        <a class="nav-link" href="tables.html">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Tables</span></a>
-      </li> -->
 
       <!-- Divider -->
       <!-- <hr class="sidebar-divider d-none d-md-block"> -->
@@ -246,7 +171,7 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?=$company_name?></span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">dfdd</span>
                 <!-- <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60"> -->
               </a>
               <!-- Dropdown - User Information -->

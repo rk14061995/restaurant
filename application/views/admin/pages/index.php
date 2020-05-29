@@ -18,7 +18,7 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Jobs Posted </div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?=count($jobsPosted)?></div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?='3'?></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -35,7 +35,7 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Application (Receieved)</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?=count($jobsApplication)?></div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?='33'?></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -53,7 +53,7 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Application (Accepted)</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?=count($jobsApplication_rej)?></div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?='34'?></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -70,7 +70,7 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Application (Rejected)</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?=count($jobsApplication_acp)?></div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?='56'?></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -99,7 +99,7 @@
               <form class="user" id="compLogo">
                 <div class="form-group row">
                   <div class="col-sm-12 mb-3 mb-sm-0">
-                   <img src="<?=base_url('assets/CompanyImages/logo/').$compData[0]->company_logo?>" width="100%" onerror='this.src="<?=base_url('assets/CompanyImages/logo/default.png')?>"'>
+                   <img src="" width="100%" onerror='this.src=""'>
                   </div>
 
                 </div>
@@ -128,19 +128,19 @@
               <form class="user" id="compDetail">
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="Company Name" name="comp_name" value="<?=$compData[0]->company_name?>">
+                    <input type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="Company Name" name="comp_name" value="">
                   </div>
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="form-control form-control-user" id="exampleInputPassword" placeholder="Phone Number" name="comp_phone" value="<?=$compData[0]->comp_phone?>">
+                    <input type="text" class="form-control form-control-user" id="exampleInputPassword" placeholder="Phone Number" name="comp_phone" value="">
                   </div>
                   
                 </div>
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                   <input type="email" name="comp_email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Company Email Address" value="<?=$compData[0]->company_email?>" readonly>
+                   <input type="email" name="comp_email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Company Email Address" value="" readonly>
                   </div>
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="form-control form-control-user" id="exampleInputPassword" placeholder="Company URL" name="comp_website" value="<?=$compData[0]->website_url?>">
+                    <input type="text" class="form-control form-control-user" id="exampleInputPassword" placeholder="Company URL" name="comp_website" value="">
                   </div>
                   
                 </div>
@@ -148,7 +148,7 @@
                   
                   <div class="col-sm-12">
                     <label>Company Description</label>
-                    <textarea class="form-control form-control-user"  rows="5" name="comp_desc"><?=$compData[0]->comp_desc?></textarea>
+                    <textarea class="form-control form-control-user"  rows="5" name="comp_desc"></textarea>
                     
                   </div>
                 </div>
@@ -157,14 +157,14 @@
                   
                   <div class="col-sm-12">
                     <label>Company Address</label>
-                    <input type="text" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Company Address" name="comp_address" value="<?=$compData[0]->comp_address?>">
+                    <input type="text" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Company Address" name="comp_address" value="">
                   </div>
                 </div>
                 <div class="form-group row">
                   
                   <div class="col-sm-12">
                     <label>Company Registratio Number</label>
-                    <input type="text" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Company Address" name="comp_reg" value="<?=$compData[0]->company_reg_no?>">
+                    <input type="text" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Company Address" name="comp_reg" value="">
                   </div>
                 </div>
                 <input type="submit" name="" value="Update Account" class="btn btn-primary btn-user btn-block">
