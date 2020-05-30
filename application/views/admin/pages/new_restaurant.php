@@ -12,22 +12,22 @@
                 <h1 class="h4 text-gray-900 mb-4">Add New Restaurant</h1>
                 <hr>
               </div>
-              <form class="user" id="compDetail">
+              <form class="user" id="restDetail">
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="Restaurant Name" name="rest_name" value="">
+                    <input type="text" class="form-control form-control-user" id="restName" placeholder="Restaurant Name" name="rest_name" value=""required>
                   </div>
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="form-control form-control-user" id="exampleInputPassword" placeholder="Restaurant Email" name="rest_email" value="">
+                    <input type="email" class="form-control form-control-user" id="restEmail" placeholder="Restaurant Email" name="rest_email" value="" required>
                   </div>
                   
                 </div>
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                   <input type="email" name="rest_pass" class="form-control form-control-user" id="exampleInputEmail" placeholder="Restaurant Password" value="" readonly>
+                   <input type="text" name="rest_pass" class="form-control form-control-user" id="rtestPass" placeholder="Restaurant Password" value="" required>
                   </div>
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="form-control form-control-user" id="exampleInputPassword" placeholder="Confirm Password" name="confr_pass" value="">
+                    <input type="text" class="form-control form-control-user" id="restconfpass" placeholder="Confirm Password" name="confr_pass" value="">
                   </div>
                   
                 </div>
@@ -67,56 +67,4 @@
     </div>
 
   </div>
-  
-  <script type="text/javascript">
-  $(document).ready(function(){
-    $('#compDetail').on('submit',function(e){
-      e.preventDefault();
-      var formData=new FormData($(this)[0]);
-      console.log("Working Fine");
-      $.ajax({
-        url:"<?=base_url('CompanyLogic/updateCompDetails')?>",
-        type:"post",
-        cache:false,
-        contentType:false,
-        processData:false,
-        data:formData,
-        success:function(response){
-          // console.log(response);
-          response=JSON.parse(response);
-          if(response.code==1){
-            swal("Great..","Updated Successfully.","success");
-          }else{
-            swal("Ooops..","Something went wrong","error");
-          }
-          location.reload();
-        }
-      });
-    });
-    $('#compLogo').on('submit',function(e){
-      e.preventDefault();
-      var formData=new FormData($(this)[0]);
-      console.log("Working Fine");
-      $.ajax({
-        url:"<?=base_url('CompanyLogic/uploadLogo')?>",
-        type:"post",
-        cache:false,
-        enctype:'multipart/form-data',
-        contentType:false,
-        processData:false,
-        data:formData,
-        success:function(response){
-          // console.log(response);
-          response=JSON.parse(response);
-          if(response.code==1){
-            swal("Great..","Updated Successfully.","success");
-          }else{
-            swal("Ooops..","Something went wrong","error");
-          }
-          location.reload();
-        }
-      });
-    });
-  });
-</script>
   

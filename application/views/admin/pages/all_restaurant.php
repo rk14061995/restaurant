@@ -57,7 +57,7 @@
                             <p><strong>Established On:</strong> <?=$rest->establishment_year?></p>
                           </td>
                           <td>
-                            <p><a href="javascript:void(0)" class="btn btn-warning" d-rest="<?=$rest->rest_id?>">Deactivate</a></p>
+                            <p><a href="javascript:void(0)" class="btn btn-warning deact_rest" d-rest="<?=$rest->rest_id?>">Deactivate</a></p>
                             <p><a href="javascript:void(0)" class="btn btn-danger remove_rest" d-rest="<?=$rest->rest_id?>">Remove</a></p>
                           </td>
                         </tr>
