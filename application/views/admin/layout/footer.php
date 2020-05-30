@@ -51,18 +51,18 @@
                   <h6 class="m-0 font-weight-bold text-primary">Update Category</h6>
                 </div>
                 <div class="card-body">
-                  <form id="updateCate">
+                  <form id="updateSubCate">
                     <div class="form-group row">
                       <div class="col-sm-12 mb-3 mb-sm-0">
-                        <input type="hidden" class="form-control form-control-user" id="cat_name" placeholder="Category Name" name="cat_id" value="<?=$CategoryDetails[0]->category_id?>">
-                        <input type="text" class="form-control form-control-user" id="cat_name" placeholder="Category Name" name="cat_name" value="<?=$CategoryDetails[0]->category_name?>">
+                        <input type="hidden" class="form-control form-control-user" id="subcat_id" placeholder="Category Name" name="subcat_id" value="">
+                        <input type="text" class="form-control form-control-user" id="subcat_name" placeholder="Category Name" name="subcat_name" value="">
                       </div>
                      
                       
                     </div>
                      <div class="form-group row">
                       <div class="col-sm-12 mb-3 mb-sm-0">
-                        <input type="submit" name="" value="Update Category" class="btn btn-primary btn-user btn-block">
+                        <input type="submit" name="" value="Update Sub Category" class="btn btn-primary btn-user btn-block">
                       </div>
                      
                       
@@ -142,9 +142,26 @@
       });
       $('.remove_rest').on('click',function(){
         var rest_id=$(this).attr('d-rest');
-        alert("Remove "+rest_id);
-
+        // alert("Activate "+rest_id);
+        $.ajax({
+          url:"<?=base_url('API/removeRestaurant')?>",
+          type:"post",
+          data:{rest_id:rest_id},
+          success:function(response){
+            // console.log(response);
+            response=JSON.parse(response);
+            if(response.status==1){
+              swal("Great..","Deleted Successfully.","success");
+            }else{
+              swal("Ooops..","Something went wrong","error");
+            }
+            setInterval(function(){
+              location.reload();
+            },1500);
+          }
+        })
       });
+   
       $('#restDetail').on('submit',function(e){
         e.preventDefault();
         console.log("Working...");
@@ -288,8 +305,57 @@
         
       });
      $('.edit_sub_cat').on('click',function(){
+      var sub_cat_id=$(this).attr('d-sub_cat_id');
+      var sub_cat_name=$(this).attr('d-sub_cat_name');
+      $('#subcat_id').val(sub_cat_id);
+      $('#subcat_name').val(sub_cat_name);
       $('#editSubCategory').modal('show');
      });
+     $('#updateSubCate').on('submit',function(e){
+        e.preventDefault();
+        var formData= new FormData($(this)[0]);
+        $.ajax({
+          url:"<?=base_url('API/updateSubCategory')?>",
+          type:"post",
+          cache:false,
+          contentType:false,
+          processData:false,
+          data:formData,
+          success:function(response){
+            // console.log(response);
+            response=JSON.parse(response);
+            if(response.status==1){
+              swal("Great..","Updated Successfully.","success");
+            }else{
+              swal("Ooops..","Something went wrong","error");
+            }
+            setInterval(function(){
+              location.reload();
+            },1500);
+          }
+        })
+      });
+     $('.removesub_category').on('click',function(){
+        var subcate_id=$(this).attr('d-sub_cat_id');
+        // alert("Activate "+rest_id);
+        $.ajax({
+          url:"<?=base_url('API/removeSubCategory')?>",
+          type:"post",
+          data:{subcat_id:subcate_id},
+          success:function(response){
+            // console.log(response);
+            response=JSON.parse(response);
+            if(response.status==1){
+              swal("Great..","Deleted Successfully.","success");
+            }else{
+              swal("Ooops..","Something went wrong","error");
+            }
+            setInterval(function(){
+              location.reload();
+            },1500);
+          }
+        })
+      });
     })
   </script>
 </body>

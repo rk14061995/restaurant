@@ -46,6 +46,17 @@
 			$toUpdate=array("category_name"=>$this->input->post('cat_name'));
 			die(json_encode(array("status"=>$this->MODEL->update_Category($condition,$toUpdate))));
 		}
+		public function updateSubCategory(){
+			$condition=array("sub_cat_id"=>$this->input->post('subcat_id'));
+			$toUpdate=array("sub_category_name"=>$this->input->post('subcat_name'));
+			die(json_encode(array("status"=>$this->MODEL->update_subCategory($condition,$toUpdate))));
+		}
+		public function removeSubCategory(){
+			die(json_encode(array("status"=>$this->MODEL->remove_subCategory($this->input->post('subcat_id')))));
+		}
+		public function removeRestaurant(){
+			die(json_encode(array("status"=>$this->MODEL->remove_Restaurant($this->input->post('rest_id')))));
+		}
 	}
 
 ?>

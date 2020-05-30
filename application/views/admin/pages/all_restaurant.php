@@ -28,7 +28,7 @@
                       <th>Action</th>
                     </tr>
                   </thead>
-                  <tfoot>
+                  <!-- <tfoot>
                     <tr>
                       <th>S.No</th>
                       <th>Restaurant Details</th>
@@ -36,7 +36,7 @@
                       <th>Address</th>
                       <th>Action</th>
                     </tr>
-                  </tfoot>
+                  </tfoot> -->
                   <tbody>
                     <?php $i=1;?>
                     <?php foreach($addRest as $rest): ?>

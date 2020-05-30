@@ -67,7 +67,7 @@
                         <td class="text-center"><?=$i?></td>
                         <td class="text-center"><?=$cat->sub_category_name?></td>
                         <td class="text-center">
-                          <a href="javascript:void(0)" class="edit_sub_cat" title="Edit Sub Category" d-sub_cat_id="<?=$cat->sub_cat_id?>"><i class="fas fa-eye"></i></a>
+                          <a href="javascript:void(0)" class="edit_sub_cat" title="Edit Sub Category" d-sub_cat_id="<?=$cat->sub_cat_id?>" d-sub_cat_name="<?=$cat->sub_category_name?>"><i class="fas fa-eye"></i></a>
                           <a href="javascript:void(0)" title="Remove Sub Category" class="text-danger removesub_category" d-sub_cat_id="<?=$cat->sub_cat_id?>"><i class="fas fa-trash"></i></a>
                         </td>
                       </tr>

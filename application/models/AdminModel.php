@@ -109,6 +109,33 @@
 				return 0;
 			}
 		}
+		public function update_subCategory($condition,$toUpdate){
+			if($this->db->where($condition)->update('tbl_sub_category',$toUpdate)){
+				return 1;
+			}else{
+				return 0;
+			}
+		}
+		public function remove_subCategory($subcat_id){
+			$res=$this->db->where('sub_cat_id',$subcat_id)->delete('tbl_sub_category');
+			if($res){
+				return 1;
+			}else{
+				return 0;
+			}
+		}
+		public function remove_Restaurant($rest_id){
+			$res=$this->db->where('rest_id',$rest_id)->delete('tbl_restaurant');
+			if($res){
+				if($this->db->where('restaurant_id',$rest_id)->delete('tbl_restaurant_details')){
+					return 1;
+				}else{
+					return 0;
+				}
+			}else{
+				return 0;
+			}
+		}
 	}
 
 ?>
