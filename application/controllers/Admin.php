@@ -60,6 +60,25 @@
 			$this->load->view('admin/pages/createMenu',$data);
 			$this->load->view('admin/layout/footer');
 		}
+		public function addMenuItem(){
+			$data=array(
+							"rest_id"=>$this->input->post('rest_id'),
+							"category_id"=>$this->input->post('category_id'),
+							"sub_cat_ids"=>implode(',', $this->input->post('subcat')),
+							"item_prices"=>implode(',', $this->input->post('rate')),
+							"item_name"=>$this->input->post('item_name'),
+						);
+			$response=$this->MODEL->addNewItem($data);
+			switch ($response) {
+				case 0:$this->session->set_flashdata('msg',"Falied to add item."); break;
+				case 1:$this->session->set_flashdata('msg',"Item added Successfully."); break;
+				case 2:$this->session->set_flashdata('msg',"Item already Exists."); break;
+				default:$this->session->set_flashdata('msg',"Something went wrong"); break;
+					
+			}
+			redirect('Admin/Menu');
+
+		}
 
 		
 	}

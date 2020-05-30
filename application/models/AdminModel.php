@@ -139,6 +139,75 @@
 		public function getAllSubcate($cate_id){
 			return $this->db->where('category_id',$cate_id)->get('tbl_sub_category')->result();
 		}
+		public function addNewItem($data){
+			$check=$this->db->where($data)->get('tbl_menu_card')->result();
+			if(count($check)==0){
+			 	// echo 'Can be added';
+			 	if($this->db->insert('tbl_menu_card',$data)){
+			 		return 1;
+			 	}else{
+			 		return 0;
+			 	}
+			}else{
+			 	// echo 'Already Added';
+			 	return 2;
+			}
+		}
+		public function getAllMenuItem_($rest_id){
+			// return
+			$mainArray=array();
+			$category_array=array();
+			$subCategories=array();
+			$category_ids=$this->db->select('category_id')->group_by('category_id')->where('rest_id',$rest_id)->get('tbl_menu_card')->result(); 
+			foreach ($category_ids as $key => $value) {
+				$category_array[]=$this->getCategoryDetails($value->category_id)[0]->category_name;
+				$subCategories[]=(array)$this->getAllSubcate($value->category_id);
+				$da[]=$this->getItemOfCategory($value->category_id,$rest_id);
+			}
+			$mainArray=array(
+								"categories"=>$category_array,
+								"sub_categories"=>$subCategories,
+								"items"=>$da
+							);
+			
+			// $subcat=array();
+			// $menuDetail=array();
+			// $result= $this->db->where('rest_id',$rest_id)->get('tbl_menu_card')->result();
+			// foreach ($result as $key => $value) {
+			// 	$subCatArray=explode(',', $value->sub_cat_ids);
+			// 	$itemPrice=explode(',', $value->item_prices);
+			// 	foreach ($subCatArray as $subcat_) {
+			// 		$resSub=$this->getSubCateDetails($subcat_);
+			// 		$subcat[]=$resSub->sub_category_name;
+			// 	}
+
+			// $menuDetail[]=array("item_detail"=>$value,"sub_Cat"=>$subcat,"item_price"=>$itemPrice);
+			// }
+			return $mainArray; 
+		}
+		public function getItemOfCategory($cate_id,$rest_id){
+			$subcat=array();
+			$menuDetail=array();
+			$condition=array(
+								"rest_id"=>$rest_id,
+								"category_id"=>$cate_id
+							);
+			$result= $this->db->where($condition)->get('tbl_menu_card')->result();
+			foreach ($result as $key => $value) {
+				$subCatArray=explode(',', $value->sub_cat_ids);
+				$itemPrice=explode(',', $value->item_prices);
+				foreach ($subCatArray as $subcat_) {
+					$resSub=$this->getSubCateDetails($subcat_);
+					$subcat[]=$resSub->sub_category_name;
+				}
+
+			$menuDetail[]=array("item_detail"=>$value,"sub_Cat"=>$subcat,"item_price"=>$itemPrice);
+			}
+			return $menuDetail;
+		}
+		public function getSubCateDetails($subcat_id){
+			return $this->db->where('sub_cat_id',$subcat_id)->get('tbl_sub_category')->row();
+		}
 	}
 
 ?>

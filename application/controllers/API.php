@@ -60,6 +60,9 @@
 		public function getAllSubCategory(){
 			die(json_encode(array("data"=>$this->MODEL->getAllSubcate($this->input->post('category_id')))));
 		}
+		public function getAllMenuItem(){
+			die(json_encode(array("data"=>$this->MODEL->getAllMenuItem_($this->input->post('rest_id')))));
+		}
 	}
 
 ?>
