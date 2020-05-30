@@ -160,15 +160,17 @@
 			$subCategories=array();
 			$category_ids=$this->db->select('category_id')->group_by('category_id')->where('rest_id',$rest_id)->get('tbl_menu_card')->result(); 
 			foreach ($category_ids as $key => $value) {
-				$category_array[]=$this->getCategoryDetails($value->category_id)[0]->category_name;
-				$subCategories[]=(array)$this->getAllSubcate($value->category_id);
-				$da[]=$this->getItemOfCategory($value->category_id,$rest_id);
+				$category_array=$this->getItemOfCategory($value->category_id,$rest_id);
+				$category_name=$this->getCategoryDetails($value->category_id)[0]->category_name;
+				$subCategories=(array)$this->getAllSubcate($value->category_id);
+				// $da[]=$this->getItemOfCategory($value->category_id,$rest_id);
+				$mainArray[]=array("cate_name"=>$category_name,"sub_categories"=>$subCategories,"items"=>$category_array);
 			}
-			$mainArray=array(
-								"categories"=>$category_array,
-								"sub_categories"=>$subCategories,
-								"items"=>$da
-							);
+			// $mainArray=array(
+			// 					"categories"=>$category_array,
+			// 					// "sub_categories"=>$subCategories,
+			// 					"items"=>$da
+			// 				);
 			
 			// $subcat=array();
 			// $menuDetail=array();

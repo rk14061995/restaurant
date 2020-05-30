@@ -85,14 +85,14 @@
             <div class="card-body">
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                  <thead>
+                  <!-- <thead>
                     <tr>
                       <th class="text-center">S.No</th>
                       <th class="text-center">Item Name</th>
                       <th class="text-center">Options</th>
                       <th class="text-center">Action</th>
                     </tr>
-                  </thead>
+                  </thead> -->
                  <!--  <tfoot>
                     <tr>
                       <th class="text-center">S.No</th>
@@ -101,7 +101,7 @@
                     </tr>
                   </tfoot> -->
                   <tbody id="menuList">
-                    <tr>
+                    <!-- <tr>
                       <td colspan="4" class="text-center bg-success text-white">
                         Main Course
                       </td>
@@ -132,7 +132,7 @@
                       <td class="text-center">
                         <a href="" class="btn btn-danger">DLT</a>
                       </td>
-                    </tr>
+                    </tr> -->
                    
                   </tbody>
                 </table>
@@ -189,16 +189,57 @@
           $('#menuList').empty();
           for(let i=0; i<response.data.length; i++){
             // console.log(response.data[i]);
-            
-            var cateBar='<tr>'+
-                      '<td colspan="4" class="text-center bg-danger text-white">'+
-                       'Hhel'+
+            var categor='<tr>'+
+                      '<td colspan="4" class="text-center bg-success text-white">'+response.data[i].cate_name+
+                       
                       '</td>'+
-                    '</tr>';   
-            $('#menuList').append(cateBar);
-            for(let j=0; j<response.data[i].length; j++){
-              var item='';
+                    '</tr>';
+            $('#menuList').append(categor);
+            var subCategories=response.data[i].sub_categories;
+            var td='';
+            for(let j=0; j<subCategories.length; j++){
+              
+              td+='<td class="text-center"><strong>'+subCategories[j].sub_category_name+'</strong></td>';
             }
+            var subCategory='<tr>'+
+                      // '<td></td>'+
+                      '<td class="text-center"><strong>Item Name</strong></td>'+
+                      '<td colspan="1" class="text-center">'+
+                        '<table class="text-center" width="100%">'+
+                            '<tr class="text-center">'+td
+                            
+                            '</tr>'+
+                          '</table>'+
+                      '</td>'+
+                    '</tr>';
+            $('#menuList').append(subCategory);
+            var items=response.data[i].items;
+            
+            
+            var item='';
+            for(let k=0; k<items.length; k++){
+              var itemPrice=response.data[i].items[k].item_price;
+              var pricetd='';
+                for(let l=0; l<itemPrice.length; l++){
+                    pricetd+='<td class="text-center">'+itemPrice[l]+'</td>';
+                }
+              item+='<tr>'+
+                      // '<td class="text-center">'+(i+1)+'</td>'+
+                      '<td class="text-center">'+items[k].item_detail.item_name+'</td>'+
+                      '<td class="text-center">'+
+                          '<table width="100%">'+
+                            '<tr class="text-center">'+
+                              pricetd+
+                            '</tr>'+
+                          '</table>'+
+                      '</td>'+
+                      '<td class="text-center">'+
+                        '<a href="" class="btn btn-danger">DLT</a>'+
+                      '</td>'+
+                    '</tr>';
+            }
+            $('#menuList').append(item);
+            
           }
         }
         
