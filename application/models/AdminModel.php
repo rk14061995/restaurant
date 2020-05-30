@@ -39,7 +39,7 @@
 			 		return 0;
 			 	}
 			 }else{
-			 	echo 'Already Added';
+			 	// echo 'Already Added';
 			 	return 2;
 			 }
 		}
@@ -52,15 +52,25 @@
 			 						"rest_email"=>$data['rest_email'],
 			 						"rest_pass"=>$data['rest_pass']
 			 						);
-			 $data_rest_detal=array(
-			 							""=>
-			 						);
+			 // 
 			 // print_r($data_tbl_rest);
 			 $check=$this->db->where($data_tbl_rest)->get('tbl_restaurant')->result();
 			 if(count($check)==0){
 			 	// echo 'Can be added';
 			 	if($this->db->insert('tbl_restaurant',$data_tbl_rest)){
-			 		return 1;
+			 		// return 1;
+			 		$data_rest_detal=array(
+			 							"restaurant_id"=>$this->db->insert_id(),
+			 							"activation_status"=>2
+			 						);
+			 		// print_r($data_rest_detal);
+			 		if($this->db->insert('tbl_restaurant_details',$data_rest_detal)){
+			 			 return 1;
+			 		}else{
+			 			return 0;
+			 		}
+			 		// die;
+			 		// tbl_restaurant_details
 
 			 	}else{
 			 		return 0;
@@ -70,11 +80,9 @@
 			 	return 2;
 			 }
 			//Then in tbl_rest_details
-			// [rest_name] => rsName
-			 //    [rest_email] => ResMatil@dem.com
-			 //    [rest_pass] => 
-			 //    [confr_pass] => dfsdf
-				// 	}
+		}
+		public function getAll($table_name){
+			return $this->db->get($table_name)->result();
 		}
 	}
 

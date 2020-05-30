@@ -136,7 +136,33 @@
             }
           })
         }
-        
+      });
+      $('#addNewCate').on('submit',function(e){
+        e.preventDefault();
+        // console.log("Working...");
+        var formData= new FormData($(this)[0]);
+        $.ajax({
+          url:"<?=base_url('API/addNewCategory')?>",
+          type:"post",
+          cache:false,
+          contentType:false,
+          processData:false,
+          data:formData,
+          success:function(response){
+            // console.log(response);
+            response=JSON.parse(response);
+            if(response.status==1){
+              swal("Great..","Category Added Successfully.","success");
+            }else if(response.status==2){
+              swal("Wait..","Details Already Exists","warning");
+            }else{
+              swal("Ooops..","Something went wrong","error");
+            }
+            setInterval(function(){
+              location.reload();
+            },1500);
+          }
+        })
         
       });
       

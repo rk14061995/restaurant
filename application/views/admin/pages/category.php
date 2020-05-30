@@ -12,10 +12,10 @@
               <h6 class="m-0 font-weight-bold text-primary">New Categories</h6>
             </div>
             <div class="card-body">
-              <form>
+              <form id="addNewCate">
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="Category Name" name="cat_name" value="">
+                    <input type="text" class="form-control form-control-user" id="cat_name" placeholder="Category Name" name="cat_name" value="">
                   </div>
                   <div class="col-sm-6 mb-3 mb-sm-0">
                     <input type="submit" name="" value="Add New Category" class="btn btn-primary btn-user btn-block">
@@ -33,7 +33,9 @@
             </div>
 
 
-            
+            <?php 
+           // print_r($Categories)
+            ?>
             <div class="card-body">
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -52,7 +54,15 @@
                     </tr>
                   </tfoot>
                   <tbody>
-                    
+                    <?php $i=1;?>
+                    <?php foreach($Categories as $cat):?>
+                      <tr>
+                        <td><?=$i?></td>
+                        <td><?=$cat->category_name?></td>
+                        <td>dle</td>
+                      </tr>
+                    <?php $i++?>
+                    <?php endforeach;?>
                   </tbody>
                 </table>
               </div>

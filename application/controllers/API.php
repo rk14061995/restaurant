@@ -27,6 +27,10 @@
 			$response=$this->MODEL->addNewRestaurant($_POST);
 			die(json_encode(array("status"=>$response)));
 		} 
+		public function addNewCategory(){
+			$data=array("category_name"=>$this->input->post('cat_name'));
+			die(json_encode(array("status"=>$this->MODEL->addNew($data,"tbl_category"))));
+		}
 	}
 
 ?>

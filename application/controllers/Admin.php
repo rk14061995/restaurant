@@ -29,8 +29,9 @@
 			$this->load->view('admin/layout/footer');
 		}
 		public function Category(){
+			$data['Categories']=$this->MODEL->getAll("tbl_category");
 			$this->load->view('admin/layout/header');
-			$this->load->view('admin/pages/category');
+			$this->load->view('admin/pages/category',$data);
 			$this->load->view('admin/layout/footer');
 		}
 		public function pendingRestaurant(){
@@ -45,7 +46,7 @@
 			$this->load->view('admin/pages/rejected_restaurant',$data);
 			$this->load->view('admin/layout/footer');
 		}
-		
+
 		
 	}
 ?>
