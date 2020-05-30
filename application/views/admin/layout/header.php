@@ -10,7 +10,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Company - Dashboard</title>
+  <title>Admin - Dashboard</title>
 
   <!-- Custom fonts for this template-->
   <link href="<?=base_url('assets/comp_assets/')?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
