@@ -99,7 +99,7 @@
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<?=base_url('Company/jobSeekeers')?>">
+        <a class="nav-link" href="<?=base_url('Admin/Menu')?>">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Menu</span></a>
       </li>

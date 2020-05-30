@@ -53,6 +53,13 @@
 			$this->load->view('admin/pages/categoryDetails',$data);
 			$this->load->view('admin/layout/footer');
 		}
+		public function Menu(){
+			$data['Categories']=$this->MODEL->getAll("tbl_category");
+			$data['addRest']=$this->MODEL->getAllActiveRest();
+			$this->load->view('admin/layout/header');
+			$this->load->view('admin/pages/createMenu',$data);
+			$this->load->view('admin/layout/footer');
+		}
 
 		
 	}

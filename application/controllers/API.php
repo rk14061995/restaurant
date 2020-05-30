@@ -57,6 +57,9 @@
 		public function removeRestaurant(){
 			die(json_encode(array("status"=>$this->MODEL->remove_Restaurant($this->input->post('rest_id')))));
 		}
+		public function getAllSubCategory(){
+			die(json_encode(array("data"=>$this->MODEL->getAllSubcate($this->input->post('category_id')))));
+		}
 	}
 
 ?>

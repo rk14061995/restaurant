@@ -136,6 +136,9 @@
 				return 0;
 			}
 		}
+		public function getAllSubcate($cate_id){
+			return $this->db->where('category_id',$cate_id)->get('tbl_sub_category')->result();
+		}
 	}
 
 ?>
