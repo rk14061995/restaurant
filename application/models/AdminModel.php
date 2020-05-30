@@ -84,6 +84,31 @@
 		public function getAll($table_name){
 			return $this->db->get($table_name)->result();
 		}
+		public function remove_Category($cat_id){
+			$res=$this->db->where('category_id',$cat_id)->delete('tbl_category');
+			if($res){
+				if($this->db->where('category_id',$cat_id)->delete('tbl_menu_card')){
+					return 1;
+				}else{
+					return 0;
+				}
+			}else{
+				return 0;
+			}
+		}
+		public function getCategoryDetails($cate_id){
+			return $this->db->where('category_id',$cate_id)->get('tbl_category')->result();
+		}
+		public function getCategorySubDetails($cate_id){
+			return $this->db->join('tbl_sub_category','tbl_sub_category.category_id=tbl_category.category_id')->where('tbl_category.category_id',$cate_id)->get('tbl_category')->result();
+		}
+		public function update_Category($condition,$toUpdate){
+			if($this->db->where($condition)->update('tbl_category',$toUpdate)){
+				return 1;
+			}else{
+				return 0;
+			}
+		}
 	}
 
 ?>

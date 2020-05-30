@@ -38,7 +38,48 @@
       </div>
     </div>
   </div>
+  <!-- Edit Category modal -->
+  <div id="editSubCategory" class="modal fade" role="dialog">
+    <div class="modal-dialog">
 
+      <!-- Modal content-->
+      <div class="modal-content">
+
+        <div class="modal-body">
+          <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">Update Category</h6>
+                </div>
+                <div class="card-body">
+                  <form id="updateCate">
+                    <div class="form-group row">
+                      <div class="col-sm-12 mb-3 mb-sm-0">
+                        <input type="hidden" class="form-control form-control-user" id="cat_name" placeholder="Category Name" name="cat_id" value="<?=$CategoryDetails[0]->category_id?>">
+                        <input type="text" class="form-control form-control-user" id="cat_name" placeholder="Category Name" name="cat_name" value="<?=$CategoryDetails[0]->category_name?>">
+                      </div>
+                     
+                      
+                    </div>
+                     <div class="form-group row">
+                      <div class="col-sm-12 mb-3 mb-sm-0">
+                        <input type="submit" name="" value="Update Category" class="btn btn-primary btn-user btn-block">
+                      </div>
+                     
+                      
+                    </div>
+                     
+                  
+                  </form>
+                </div>
+              </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
   <!-- Bootstrap core JavaScript-->
   <script src="<?=base_url('assets/comp_assets/')?>vendor/jquery/jquery.min.js"></script>
   <script src="<?=base_url('assets/comp_assets/')?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -165,7 +206,90 @@
         })
         
       });
-      
+
+      $('.remove_category').on('click',function(){
+        var cate_id=$(this).attr('d-cat_id');
+        // alert("Activate "+rest_id);
+        $.ajax({
+          url:"<?=base_url('API/removeCategory')?>",
+          type:"post",
+          data:{cat_id:cate_id},
+          success:function(response){
+            console.log(response);
+            response=JSON.parse(response);
+            if(response.status==1){
+              swal("Great..","Deleted Successfully.","success");
+            }else{
+              swal("Ooops..","Something went wrong","error");
+            }
+            setInterval(function(){
+              location.reload();
+            },1500);
+          }
+        })
+      });
+      $('#addSubCate').on('submit',function(e){
+        e.preventDefault();
+        // console.log("Working...");
+        var category_id=$('#category_id').val();
+        
+        if(category_id==0){
+          swal("Ooops..","Please Select Category","error");
+        }else{
+          var formData= new FormData($(this)[0]);
+          $.ajax({
+            url:"<?=base_url('API/addSubCategory')?>",
+            type:"post",
+            cache:false,
+            contentType:false,
+            processData:false,
+            data:formData,
+            success:function(response){
+              // console.log(response);
+              response=JSON.parse(response);
+              if(response.status==1){
+                swal("Great..","Suub Category Added Successfully.","success");
+              }else if(response.status==2){
+                swal("Wait..","Sub Category Already Exists","warning");
+              }else{
+                swal("Ooops..","Something went wrong","error");
+              }
+              setInterval(function(){
+                location.reload();
+              },1500);
+            }
+          })
+        }
+      });
+      $('#updateCate').on('submit',function(e){
+        e.preventDefault();
+        
+        var formData= new FormData($(this)[0]);
+        $.ajax({
+          url:"<?=base_url('API/updateCategory')?>",
+          type:"post",
+          cache:false,
+          contentType:false,
+          processData:false,
+          data:formData,
+          success:function(response){
+            // console.log(response);
+            response=JSON.parse(response);
+            if(response.status==1){
+              swal("Great..","Updated Successfully.","success");
+            }else{
+              swal("Ooops..","Something went wrong","error");
+            }
+            setInterval(function(){
+              location.reload();
+            },1500);
+          }
+        })
+        
+      });
+     $('.edit_sub_cat').on('click',function(){
+      $('#editSubCategory').modal('show');
+     });
     })
   </script>
 </body>

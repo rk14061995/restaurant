@@ -46,6 +46,13 @@
 			$this->load->view('admin/pages/rejected_restaurant',$data);
 			$this->load->view('admin/layout/footer');
 		}
+		public function categoryDetails($cate_id){
+			$data['CategoryDetails']=$this->MODEL->getCategoryDetails($cate_id);
+			$data['subCategoryDetails']=$this->MODEL->getCategorySubDetails($cate_id);
+			$this->load->view('admin/layout/header');
+			$this->load->view('admin/pages/categoryDetails',$data);
+			$this->load->view('admin/layout/footer');
+		}
 
 		
 	}

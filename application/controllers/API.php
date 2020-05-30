@@ -31,6 +31,21 @@
 			$data=array("category_name"=>$this->input->post('cat_name'));
 			die(json_encode(array("status"=>$this->MODEL->addNew($data,"tbl_category"))));
 		}
+		public function removeCategory(){
+			die(json_encode(array("status"=>$this->MODEL->remove_Category($this->input->post('cat_id')))));
+		}
+		public function addSubCategory(){
+			$data=array(
+						"category_id"=>$this->input->post('category_id'),
+						"sub_category_name"=>$this->input->post('sub_cat_name')
+						);
+			die(json_encode(array("status"=>$this->MODEL->addNew($data,"tbl_sub_category"))));
+		}
+		public function updateCategory(){
+			$condition=array("category_id"=>$this->input->post('cat_id'));
+			$toUpdate=array("category_name"=>$this->input->post('cat_name'));
+			die(json_encode(array("status"=>$this->MODEL->update_Category($condition,$toUpdate))));
+		}
 	}
 
 ?>
