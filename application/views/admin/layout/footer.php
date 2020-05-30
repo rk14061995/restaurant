@@ -55,7 +55,20 @@
   <!-- Page level custom scripts -->
   <script src="<?=base_url('assets/comp_assets/')?>js/demo/chart-area-demo.js"></script>
   <script src="<?=base_url('assets/comp_assets/')?>js/demo/chart-pie-demo.js"></script>
-
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('.activate_rest').on('click',function(){
+        var rest_id=$(this).attr('d-rest');
+        alert("Activate "+rest_id);
+      });
+      $('.remove_rest').on('click',function(){
+        var rest_id=$(this).attr('d-rest');
+        alert("Remove "+rest_id);
+      });
+        
+      
+    })
+  </script>
 </body>
 
 </html>

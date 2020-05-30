@@ -6,6 +6,7 @@
 	{
 		function __construct(){
 			parent::__construct();
+			$this->load->model('AdminModel','MODEL');
 		}
 		public function index(){
 
@@ -22,9 +23,9 @@
 			$this->load->view('admin/layout/footer');
 		}
 		public function allRestaurant(){
-			
+			$data['addRest']=$this->MODEL->getAllActiveRest();
 			$this->load->view('admin/layout/header');
-			$this->load->view('admin/pages/all_restaurant');
+			$this->load->view('admin/pages/all_restaurant',$data);
 			$this->load->view('admin/layout/footer');
 		}
 		public function Category(){
@@ -33,15 +34,18 @@
 			$this->load->view('admin/layout/footer');
 		}
 		public function pendingRestaurant(){
+			$data['penRest']=$this->MODEL->getAllPendingRest();
 			$this->load->view('admin/layout/header');
-			$this->load->view('admin/pages/pending_restaurant');
+			$this->load->view('admin/pages/pending_restaurant',$data);
 			$this->load->view('admin/layout/footer');
 		}
 		public function rejectedRestaurant(){
+			$data['rejRest']=$this->MODEL->getAllRejectedRest();
 			$this->load->view('admin/layout/header');
-			$this->load->view('admin/pages/rejected_restaurant');
+			$this->load->view('admin/pages/rejected_restaurant',$data);
 			$this->load->view('admin/layout/footer');
 		}
+		
 		
 	}
 ?>

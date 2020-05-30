@@ -39,7 +39,31 @@
                     </tr>
                   </tfoot>
                   <tbody>
-                    
+                    <?php $i=1;?>
+                    <?php foreach($penRest as $rest): ?>
+                        <tr>
+                          <td><?=$i?></td>
+                          <td>
+                            <p><strong>Name:</strong> <?=$rest->rest_name?></p>
+                            <p><strong>Email:</strong> <?=$rest->rest_email?></p>
+                            <p><strong>Contact No:</strong> <?=$rest->rest_contact_no?></p>
+                          </td>
+                          <td>
+                            <p><strong>Name:</strong> <?=$rest->owner_name?></p>
+                            <p><strong>Contact No:</strong> <?=$rest->owner_mobile?></p>
+                          </td>
+                          <td>
+                            <p><strong>Address:</strong> <?=$rest->address?></p>
+                            <p><strong>GST No:</strong> <?=$rest->gst_no?></p>
+                            <p><strong>Established On:</strong> <?=$rest->establishment_year?></p>
+                          </td>
+                          <td>
+                            <p><a href="javascript:void(0)" class="btn btn-success activate_rest" d-rest="<?=$rest->rest_id?>">Activate</a></p>
+                            <p><a href="javascript:void(0)" class="btn btn-danger remove_rest" d-rest="<?=$rest->rest_id?>">Remove</a></p>
+                          </td>
+                        </tr>
+                        <?php $i++?>
+                    <?php endforeach;?>
                   </tbody>
                 </table>
               </div>

@@ -5,7 +5,7 @@
           <!-- Page Heading -->
           <h1 class="h3 mb-2 text-gray-800">All Restaurant</h1>
           <?php 
-            // print_r($jobApplications);
+            // print_r($addRest);
           ?>
 
           <!-- DataTales Example -->
@@ -21,25 +21,48 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th>S.No</th>
-                      <th>Name</th>
-                      <th>Email</th>
+                       <th>S.No</th>
+                      <th>Restaurant Details</th>
+                      <th>Owner Details</th>
                       <th>Address</th>
                       <th>Action</th>
-                      <!-- <th>Salary/</th> -->
                     </tr>
                   </thead>
                   <tfoot>
                     <tr>
                       <th>S.No</th>
-                      <th>Name</th>
-                      <th>Email</th>
+                      <th>Restaurant Details</th>
+                      <th>Owner Details</th>
                       <th>Address</th>
                       <th>Action</th>
                     </tr>
                   </tfoot>
                   <tbody>
-                    
+                    <?php $i=1;?>
+                    <?php foreach($addRest as $rest): ?>
+                        <tr>
+                          <td><?=$i?></td>
+                          <td>
+                            <p><strong>Name:</strong> <?=$rest->rest_name?></p>
+                            <p><strong>Email:</strong> <?=$rest->rest_email?></p>
+                            <p><strong>Contact No:</strong> <?=$rest->rest_contact_no?></p>
+                          </td>
+                          <td>
+                            <p><strong>Name:</strong> <?=$rest->owner_name?></p>
+                            <p><strong>Contact No:</strong> <?=$rest->owner_mobile?></p>
+                          </td>
+                          <td>
+                            <p><strong>Address:</strong> <?=$rest->address?></p>
+                            <p><strong>GST No:</strong> <?=$rest->gst_no?></p>
+                            <p><strong>Established On:</strong> <?=$rest->establishment_year?></p>
+                          </td>
+                          <td>
+                            <p><a href="javascript:void(0)" class="btn btn-warning" d-rest="<?=$rest->rest_id?>">Deactivate</a></p>
+                            <p><a href="javascript:void(0)" class="btn btn-danger remove_rest" d-rest="<?=$rest->rest_id?>">Remove</a></p>
+                          </td>
+                        </tr>
+                        <?php $i++?>
+                    <?php endforeach;?>
                   </tbody>
                 </table>
               </div>
