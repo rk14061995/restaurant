@@ -63,6 +63,22 @@
 		public function getAllMenuItem(){
 			die(json_encode(array("data"=>$this->MODEL->getAllMenuItem_($this->input->post('rest_id')))));
 		}
+		public function resLoginValidate(){
+			$data=array(
+							"rest_email"=>$this->input->post('rest_email'),
+							"rest_pass"=>$this->input->post('rest_pass')
+						);
+			$res=$this->MODEL->getRestLoginValidate($data);
+			if($res!=false){
+				// print_r($res);
+				$sessData=serialize($res);
+				$this->session->set_userdata('rest_user_Data',$sessData);
+			}else{
+				// echo 'False';
+			}
+			// print_r($_SESSION['rest_user_Data']);
+			redirect('Restaurant');
+		}
 	}
 
 ?>

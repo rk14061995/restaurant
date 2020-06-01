@@ -210,6 +210,14 @@
 		public function getSubCateDetails($subcat_id){
 			return $this->db->where('sub_cat_id',$subcat_id)->get('tbl_sub_category')->row();
 		}
+		public function getRestLoginValidate($data){
+			$result=$this->db->where($data)->get('tbl_restaurant')->result();
+			if(count($result)>0){
+				return $result;
+			}else{
+				return false;
+			}
+		}
 	}
 
 ?>

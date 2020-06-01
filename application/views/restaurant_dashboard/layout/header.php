@@ -10,7 +10,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Admin - Dashboard</title>
+  <title>Restaurant - Dashboard</title>
 
   <!-- Custom fonts for this template-->
   <link href="<?=base_url('assets/comp_assets/')?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -32,12 +32,12 @@
   <div id="wrapper">
 
     <!-- Sidebar -->
-<ul class="navbar-nav bg-danger sidebar sidebar-dark accordion" id="accordionSidebar" style="
+    <ul class="navbar-nav bg-danger sidebar sidebar-dark accordion" id="accordionSidebar" style="
     border-radius: 0 70px 0px 0px;
 ">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?=base_url()?>">
         <div class="sidebar-brand-icon rotate-n-15">
           
         </div>
@@ -68,25 +68,8 @@
       </li> -->
 
       <!-- Nav Item - Utilities Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDetails" aria-expanded="true" aria-controls="collapseUtilities">
-          <i class="fas fa-fw fa-wrench"></i>
-          <span>Restaurant</span>
-        </a>
-        <div id="collapseDetails" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Restaurant:</h6>
-            <a class="collapse-item" href="<?=base_url('Admin/addRestaurant')?>">Add Restaurant</a>
-            <a class="collapse-item" href="<?=base_url('Admin/allRestaurant')?>">All Restaurant</a>
-            <a class="collapse-item" href="<?=base_url('Admin/pendingRestaurant')?>">Pending Restaurant</a>
-            <!-- <a class="collapse-item" href="<?=base_url('Admin/rejectedRestaurant')?>">Rejected Restaurant</a> -->
-            <!-- <a class="collapse-item" href="utilities-animation.html">Animations</a>
-            <a class="collapse-item" href="utilities-other.html">Other</a> -->
-          </div>
-        </div>
-      </li>
       
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCategories" aria-expanded="true" aria-controls="collapseUtilities">
           <i class="fas fa-fw fa-wrench"></i>
           <span>Categories</span>
@@ -95,26 +78,24 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Categories:</h6>
             <a class="collapse-item" href="<?=base_url('Admin/Category')?>">Add/View Categories</a>
-            <!-- <a class="collapse-item" href="<?=base_url('Admin/Category')?>">View Categories</a> -->
-           
           </div>
         </div>
-      </li>
+      </li> -->
       <li class="nav-item">
-        <a class="nav-link" href="<?=base_url('Admin/Menu')?>">
+        <a class="nav-link" href="<?=base_url('Restaurant/Menu')?>">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Menu</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<?=base_url('Company/jobSeekeers')?>">
+        <a class="nav-link" href="<?=base_url('Restaurant/setting')?>">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Setting</span></a>
       </li>
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" href="<?=base_url('Company/jobSeekeers')?>">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Job Seekers</span></a>
-      </li>
+      </li> -->
       <!-- Divider -->
       <hr class="sidebar-divider">
 
@@ -173,25 +154,17 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">dfdd</span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?=$myRestName?></span>
                 <!-- <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60"> -->
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="<?=base_url('Company/Details')?>">
+                <a class="dropdown-item" href="<?=base_url('Restaurant/Setting')?>">
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Profile
                 </a>
-                <!-- <a class="dropdown-item" href="#">
-                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Settings
-                </a>
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Activity Log
-                </a> -->
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="<?=base_url('Company/logOut')?>" >
+                <a class="dropdown-item" href="<?=base_url('Restaurant/logOut')?>" >
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Logout
                 </a>

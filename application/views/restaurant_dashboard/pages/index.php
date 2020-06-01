@@ -17,7 +17,7 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Restaurant Added </div>
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Jobs Posted </div>
                       <div class="h5 mb-0 font-weight-bold text-gray-800"><?='3'?></div>
                     </div>
                     <div class="col-auto">
@@ -34,7 +34,7 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Category</div>
+                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Application (Receieved)</div>
                       <div class="h5 mb-0 font-weight-bold text-gray-800"><?='33'?></div>
                     </div>
                     <div class="col-auto">
@@ -52,7 +52,7 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Menu Items</div>
+                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Application (Accepted)</div>
                       <div class="h5 mb-0 font-weight-bold text-gray-800"><?='34'?></div>
                     </div>
                     <div class="col-auto">
@@ -69,7 +69,7 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-danger text-uppercase mb-1"> (Pending)</div>
+                      <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Application (Rejected)</div>
                       <div class="h5 mb-0 font-weight-bold text-gray-800"><?='56'?></div>
                     </div>
                     <div class="col-auto">
@@ -86,9 +86,9 @@
       // $compData=unserialize($this->session->userdata('logged_company'));
     // print_r($compData);
     ?>
-  <!--   <div class="card o-hidden border-0 shadow-lg my-5">
+    <!-- <div class="card o-hidden border-0 shadow-lg my-5">
       <div class="card-body p-0">
-      
+        
         <div class="row">
           <div class="col-lg-5 d-none d-lg-block ">
             <div class="p-5">
