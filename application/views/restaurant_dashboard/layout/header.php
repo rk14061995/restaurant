@@ -62,7 +62,7 @@
         Interface
       </div>
       <!--  <li class="nav-item">
-        <a class="nav-link" href="<?=base_url('Company/Details')?>">
+        <a class="nav-link" href="<?=base_url('Restaurant')?>">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Company Details</span></a>
       </li> -->
